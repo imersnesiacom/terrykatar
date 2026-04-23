@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMersBiopage - Link in Bio</title>
     
-    <!-- Favicon -->
+    <!-- 1. TITLE (Default, akan diupdate otomatis oleh JavaScript) -->
+    <title>iMersBiopage</title>
+        
+    <!-- 2. FAVICON (Default, akan diupdate otomatis oleh JavaScript) -->
     <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=iMersBiopage&background=7c3aed&color=fff&size=32">
-    
+        
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+        
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+        
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -248,7 +250,7 @@
                 <div class="w-12 h-12 mx-auto rounded-full glass-input flex items-center justify-center text-purple-600 dark:text-purple-400 text-xl mb-3 shadow-inner">
                     <i class="fas fa-envelope-open-text"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Join VIP List ✨</h3>
+                <h3 class="text-xl font-bold mb-2">Join VIP List âœ¨</h3>
                 <p class="text-xs md:text-sm opacity-70 mb-5">Dapatkan info eksklusif, promo, dan update terbaru langsung ke kontakmu.</p>
 
                 <form id="lead-form" onsubmit="submitLeadForm(event)" class="space-y-3 relative z-10 text-left">
@@ -287,7 +289,7 @@
 
         <!-- Footer -->
         <footer class="text-center mt-6 opacity-60">
-            <p class="text-xs font-medium tracking-wide">© <span id="year"></span> <span id="footer-name"></span>. <span id="footer-text"></span></p>
+            <p class="text-xs font-medium tracking-wide">Â© <span id="year"></span> <span id="footer-name"></span>. <span id="footer-text"></span></p>
         </footer>
 
     </main>
@@ -368,7 +370,7 @@
                 { Platform: "Instagram", Url: "https://instagram.com", IconClass: "fab fa-instagram", ColorClass: "text-pink-600 dark:text-pink-400", Visible: "true" }
             ],
             apps: [
-                { ID: "app1", Type: "link", Name: "AI Image Studio", Description: "Generate gambar Neumorphic", Category: "AI Tools", Url: "https://example.com/ai", IconClass: "fas fa-wand-magic-sparkles", ColorClass: "text-purple-600 dark:text-purple-400", Visible: "true", ClickCount: 2045, isLocked: false, BadgeText: "HOT🔥", BadgeColor1: "#ec4899", BadgeColor2: "#8b5cf6", BadgeRatio: 50 },
+                { ID: "app1", Type: "link", Name: "AI Image Studio", Description: "Generate gambar Neumorphic", Category: "AI Tools", Url: "https://example.com/ai", IconClass: "fas fa-wand-magic-sparkles", ColorClass: "text-purple-600 dark:text-purple-400", Visible: "true", ClickCount: 2045, isLocked: false, BadgeText: "HOTðŸ”¥", BadgeColor1: "#ec4899", BadgeColor2: "#8b5cf6", BadgeRatio: 50 },
                 { ID: "banner1", Type: "image", Name: "Promo Bundle AI", ImageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop", Url: "https://example.com/promo", Category: "Semua", Visible: "true", ClickCount: 0 },
                 { ID: "app2", Type: "link", Name: "Financial Tracker", Description: "Hitung aset dan investasi", Category: "Produktivitas", Url: "https://example.com/finance", IconClass: "fas fa-chart-pie", ColorClass: "text-emerald-600 dark:text-emerald-400", Visible: "true", ClickCount: 890, isLocked: false },
                 { ID: "app3", Type: "link", Name: "Private Blueprint", Description: "Strategi digital eksklusif", Category: "Premium", Url: "https://example.com/premium", IconClass: "fas fa-gem", ColorClass: "text-amber-500", Visible: "true", ClickCount: 120, isLocked: true, PasswordSourceUrl: "https://wa.me/628123456789", Password: "admin", BadgeText: "PREMIUM", BadgeColor1: "#f59e0b", BadgeColor2: "#d97706", BadgeRatio: 50 },
@@ -511,7 +513,7 @@
 
             let html = '';
             
-            // Tombol Prev
+            // Tomol Prev
             const prevDisabled = currentPage === 1 ? 'opacity-30 cursor-not-allowed pointer-events-none' : 'hover:bg-white/40 cursor-pointer';
             html += `<button onclick="changePage(${currentPage - 1})" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-xl glass transition-all ${prevDisabled}"><i class="fas fa-chevron-left text-xs"></i></button>`;
             
@@ -565,6 +567,11 @@
         }
 
         function renderProfile(config) {
+            // Update Title & Favicon Dinamis dari Sheet Config via JS
+            document.title = config.profile_name;
+            const fav = document.querySelector('link[rel="icon"]');
+            if (fav) fav.href = config.profile_image;
+
             document.getElementById('profile-name').innerText = config.profile_name;
             document.getElementById('profile-title').innerText = config.profile_title;
             document.getElementById('profile-image').src = config.profile_image;
